@@ -20,3 +20,9 @@ model User {
   username String @unique @db.VarChar(45)
   email    String @unique @db.VarChar(45)
 }
+
+model TokenBlackList {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  createdAt DateTime @default(now())
+}

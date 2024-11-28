@@ -7,10 +7,17 @@ import { UsersService } from 'src/users/users.service';
 import { UsersModule } from 'src/users/users.module';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
+import { TokenBlacklistService } from './token-blacklist/token-blacklist.service';
 
 @Module({
   controllers: [AuthController],
-  providers: [AuthService, PrismaService, JwtStrategy, UsersService],
+  providers: [
+    TokenBlacklistService,
+    AuthService,
+    PrismaService,
+    JwtStrategy,
+    UsersService,
+  ],
   imports: [
     UsersModule,
     PassportModule,
